@@ -43,8 +43,8 @@ Edit any settings you need to.
 
 ###### Login
 
-email: admin@local.host 
-password: !Qu1dU5Ba$e
+*  email: admin@local.host  
+*  password: !Qu1dU5Ba$e
 
 Note: Once logged in, change the default admin accounts username, password and email.
 
