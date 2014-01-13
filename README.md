@@ -55,6 +55,6 @@ master: Contains latest stable version.
 
 ###### To do
 
-0.1.x : Optimization, bugfixes, test scripts.
-0.2.x : Security improvements, email confirmation, 4 digit pin.
-0.3.x : Plugin hooks.
+*  0.1.x : Optimization, bugfixes, test scripts.  
+*  0.2.x : Security improvements, email confirmation, 4 digit pin.  
+*  0.3.x : Plugin hooks.  
