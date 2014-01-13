@@ -1,0 +1,32 @@
+extends layout
+
+block content
+  .row.first-row
+    .container-fluid.offset1
+      .row-fluid
+        .span2
+          .well
+            img(src="#{user.avatarURL}")
+          .well
+            ul.nav.nav-list
+              li.nav-header
+                =user.username
+              if active == 'settings'
+                li.active
+                  a(href='/settings') Settings
+              else
+                li
+                  a(href='/settings') Settings
+              if user.admin == true
+                li.divider
+                li.nav-header Administration
+                if active == 'users'
+                  li.active
+                    a(href='/users') Users
+                else
+                  li
+                    a(href='/users') Users
+
+        .span9
+          block account
+

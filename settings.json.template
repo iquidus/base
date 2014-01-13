@@ -1,0 +1,40 @@
+/*
+  This file must be valid JSON. But comments are allowed
+
+  Please edit settings.json, not settings.json.template
+*/
+{
+  // Name your instance!
+  "title": "IQUIDUS-BASE",
+
+  // favicon default name
+  // alternatively, set up a fully specified Url to your own favicon
+  "favicon": "favicon.ico",
+  
+  // IP and port which etherpad should bind at
+  "ip": "0.0.0.0",
+  "port" : 9001,
+
+  // Database settings (MongoDB)
+  "dbsettings": {
+    "database": "basedb",
+    "address": "localhost",
+    "port": "27017"
+  },
+
+  // Registration settings
+  "registration": {
+    /*
+    enabled: true|false 
+      true, allow users to register/sign up. 
+      false, disable registration.
+    */
+    "enabled": true,
+    /*
+    mode: open|approve
+      open, auto enable new accounts. 
+      approve, require an administrator to enable new accounts. 
+    */
+    "mode": "approve"
+  }
+}

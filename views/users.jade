@@ -1,0 +1,95 @@
+extends account
+
+block account
+  .container-fluid
+    .row
+      .well
+        center
+          h4 Users
+    if typeof messages !== 'undefined'
+      .row
+        each message in messages
+          .alert.alert-error
+            button.close(type='button', data-dismiss='alert') ×
+            center
+              h5
+                =message
+    if typeof info !== 'undefined'
+      .row
+        each message in info
+          .alert.alert-info
+            button.close(type='button', data-dismiss='alert') ×
+            center
+              h5
+                =message
+    form(method='post', action='/users')
+      .row
+        .well
+          table.table.table-hover.sortable
+            thead.header
+              tr
+                th.avatar
+                th.username Username
+                th.email Email
+                th.admin Admin
+                th.enabled Enabled
+                th
+            tbody.data
+              each u in users
+                if u.admin == true
+                  tr.success
+                    td.avatar
+                      img(src="#{u.avatarURL}", style="height:20px;width:20px;")
+                    td.username
+                      =u.username
+                    td.email
+                      =u.email
+                    td.admin
+                      =u.admin
+                    td.enabled
+                      =u.enabled
+                    td.selection
+                      center
+                        input(type='checkbox', id='selection',name='#{u.id}')
+                else
+                  if u.enabled == true
+                    tr.info
+                      td.avatar
+                        img(src="#{u.avatarURL}", style="height:20px;width:20px;")
+                      td.username
+                        =u.username
+                      td.email
+                        =u.email
+                      td.admin
+                        =u.admin
+                      td.enabled
+                        =u.enabled
+                      td.selection
+                        center
+                          input(type='checkbox', id='selection',name='#{u.id}')
+                  else
+                    tr.error
+                      td.avatar
+                        img(src="#{u.avatarURL}", style="height:20px;width:20px;")
+                      td.username
+                        =u.username
+                      td.email
+                        =u.email
+                      td.admin
+                        =u.admin
+                      td.enabled
+                        =u.enabled
+                      td.selection
+                        center
+                          input(type='checkbox', id='selection',name='#{u.id}')
+      .row 
+        .btn-group.pull-left
+          button.btn.btn-inverse(type="submit", name="submit", value="revoke") Revoke Admin
+          button.btn.btn-success(type="submit", name="submit", value="grant") Grant Admin
+        .btn-group.pull-right
+          button.btn.btn-danger(type="submit", name="submit", value="delete") Delete
+          button.btn.btn-inverse(type="submit", name="submit", value="disable") Disable
+          button.btn.btn-primary(type="submit", name="submit", value="enable") Enable
+      .row
+        .span12      
+        

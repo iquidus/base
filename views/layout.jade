@@ -1,0 +1,69 @@
+doctype 5
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='/vendor/bootstrap.min.css', media='screen')
+  body
+    .navbar.navbar-inverse.navbar-fixed-top
+          .navbar-inner
+            .container-fluid
+              button.btn.btn-navbar(type='button', data-toggle='collapse', data-target='.nav-collapse')
+                span.icon-bar
+                span.icon-bar
+                span.icon-bar
+              a.brand(href='/') #{title}
+              .nav-collapse.collapse
+                ul.nav
+                  if active == 'home'
+                    li.active
+                      a.navbar-link(href='/') About
+                  else
+                    li
+                      a.navbar-link(href='/') About
+                  if active == 'license'
+                    li.active
+                      a.navbar-link(href='/license') License
+                  else
+                    li
+                      a.navbar-link(href='/license') License
+                ul.nav.pull-right            
+                  if typeof user !== 'undefined'
+                    li
+                      .btn-group.dropdown                       
+                        button.btn.btn-inverse.dropdown-toggle(data-toggle="dropdown")
+                          =user.username
+                          |  
+                          span.caret
+                        ul.dropdown-menu.pull-right
+                          li
+                            a(tabindex="-1", href="/settings") Settings
+                          li.divider
+                          li
+                            a(tabindex="-1", href="/logout") Logout
+                  else
+                    if active !== 'signin'
+                      if registration.enabled
+                        if active == 'register'
+                          li.active.pull-left
+                            a.navbar-link(href='/register') Register
+                        else
+                          li.pull-left
+                            a.navbar-link(href='/register') Register
+                      form.navbar-form.pull-right(action="/signin", method="post")
+                        input.span2.navbar-text-input(type='text', placeholder='Email', name='email')
+                        input.span2.navbar-text-input(type='password', placeholder='Password', name='passwd')
+                        button.btn.btn-primary(type='submit') Sign in
+        .container-fluid
+          .row-fluid
+            block content
+    .navbar.navbar-inverse.navbar-fixed-bottom
+      .navbar-inner
+        center      
+          p.navbar-text 
+            | © Copyright 2014 • 
+            a.navbar-link(href="http://www.iquidus.co.nz", target="_blank") Iquidus Technology
+            |  • All Rights Reserved
+    script(src='/vendor/jquery.js')
+    script(src='/vendor/bootstrap.min.js')
+    script(src='/vendor/sorttable.js')

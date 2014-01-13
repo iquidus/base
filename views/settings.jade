@@ -1,0 +1,99 @@
+extends account
+
+block account
+  .container-fluid
+    .row
+      .well
+        center
+          h4 Account Settings
+    
+    if typeof messages !== 'undefined'
+      .row
+        each message in messages
+          .alert.alert-error
+            button.close(type='button', data-dismiss='alert') ×
+            center
+              h5
+                =message
+    if typeof info !== 'undefined'
+      .row
+        each message in info
+          .alert.alert-info
+            button.close(type='button', data-dismiss='alert') ×
+            center
+              h5
+                =message
+    .row
+      .span6
+        form(action="/changename", method="post")
+          .well 
+            center
+              h5
+                =user.username
+            hr
+            .row
+              .form-horizontal
+                .control-group
+                  label.control-label(for="newname") New Username
+                  .controls
+                    input(type='text', placeholder='dobbs', name='newname')
+            .row
+              button.btn.btn-primary(type='submit').pull-right Change 
+      .span6
+        form(action="/changemail", method="post")
+          .well 
+            center
+              h5
+                =user.email
+            hr
+            .row
+              .form-horizontal
+                .control-group
+                  label.control-label(for="newemail") New Email
+                  .controls
+                    input(type='text', placeholder='new@example.com', name='newemail')
+            .row
+              button.btn.btn-primary(type='submit').pull-right Change 
+    .row
+      .span6
+        form(action="/gravatar", method="post")
+          .well
+            center
+              h5 Avatar
+            hr            
+            p
+              a(href='https://en.gravatar.com/') Gravatar  
+              | is used to manage avatars
+            p
+              | A Gravatar is a Globally Recognized Avatar. You upload it and create your profile just once, and then when you participate in any Gravatar-enabled site, your Gravatar image will automatically follow you there.
+            if user.gravatar == false
+              .row
+                button.btn.btn-primary(type='submit').pull-right Enable
+            else
+              .row
+                button.btn.btn-danger(type='submit').pull-right Disable
+      .span6
+        form(action="/changepw", method="post")
+          .well
+            center 
+              h5 Change Password
+            hr
+            .row
+              .form-horizontal
+                .control-group
+                  label.control-label(for="current") Current Password
+                  .controls
+                    input(type='password', placeholder='password', name='current')
+                .control-group
+                  label.control-label(for="newpass") New Password
+                  .controls
+                    input(type='password', placeholder='password', name='newpass')
+                .control-group
+                  label.control-label(for="confirmpw") Confirm Password
+                  .controls
+                    input(type='password', placeholder='password', name='confirmpw')
+            .row
+              button.btn.btn-primary(type='submit').pull-right Change
+    .row
+      .span12 
+

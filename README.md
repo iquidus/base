@@ -41,6 +41,13 @@ Edit any settings you need to.
 
     http://127.0.0.1:9001
 
+###### Login
+
+email: admin@local.host 
+password: !Qu1dU5Ba$e
+
+Note: Once logged in, change the default admin accounts username, password and email.
+
 -----
 
 ### Development

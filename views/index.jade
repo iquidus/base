@@ -1,0 +1,37 @@
+extends layout
+
+block content
+  .row.first-row
+    .span8.offset2
+      .alert.alert-error
+        button.close(type='button', data-dismiss='alert') ×
+        center
+          h5
+            | Warning: In early development (alpha), current branch 0.1.x is not to be considered stable. For more info visit the 
+            a(href='https://github.com/iquidus/base') Github repository.
+  .row
+    .span3.offset2
+      form
+        .well
+          a(href='http://www.iquidus.co.nz/')
+            img(src="/images/logo.png", style="height:312px;border-radius:5px;")
+    .span5
+      form            
+        .well
+          center
+            h3 Iquidus Base
+          
+          h4 About
+          p
+            | Written in node.js, using mongodb and twitters Bootstrap. Iquidus Base is focused on achieving optimal performance, maximum security and layout consistencey across browsers. Taking care of user registration, authentication, and adiministration; Iquidus Base is the ideal foundation to build your web service upon.
+          hr
+          h4 Open Source
+          p
+            | Released under the BSD 3-Clause 
+            a(href='/license') license
+            | , allowing you to use it as the base for your own projects without restrictions. Source code is available via 
+            a(href='https://github.com/iquidus/base') Github. 
+            | All feedback, bug reports and pull requests are welcome.
+ 
+
+  script(src='/vendor/sorttable.js')

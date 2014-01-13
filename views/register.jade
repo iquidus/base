@@ -1,0 +1,47 @@
+extends layout
+
+block content
+  if registration.enabled
+    .row.first-row
+      if typeof messages !== 'undefined'
+        .span4.offset4
+          each message in messages
+            .alert.alert-error
+              button.close(type='button', data-dismiss='alert') ×
+              center
+                h5
+                  =message
+    .row
+      .span4.offset4
+        .well
+          form(action="/register", method="post")
+            h2 Register
+            hr
+            .row
+              .form-horizontal.pull-right
+                .control-group
+                  label.control-label(for="username") Username
+                  .controls
+                    input(type='text', placeholder='bob', name='username')
+                .control-group
+                  label.control-label(for="email") Email
+                  .controls
+                    input(type='text', placeholder='bob@example.com', name='email')
+                .control-group
+                  label.control-label(for="passwd") Password
+                  .controls
+                    input(type='password', placeholder='$Passw0rd++', name='passwd')
+                .control-group
+                  label.control-label(for="passwd2") Confirm
+                  .controls
+                    input(type='password', placeholder='$Passw0rd++', name='passwd2')
+            .row          
+              button.btn.btn-primary.pull-right(type='submit') Submit
+  else
+    .row.first-row
+      .span4.offset4
+        .alert.alert-error
+          button.close(type='button', data-dismiss='alert') ×
+          center
+            h5
+              | Registrations are closed.

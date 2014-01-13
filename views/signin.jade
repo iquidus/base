@@ -1,0 +1,40 @@
+extends layout
+
+block content
+  .row.first-row
+    .span4.offset4
+      if typeof messages !== 'undefined'
+        each message in messages
+          .alert.alert-error
+            button.close(type='button', data-dismiss='alert') ×
+            center
+              h5
+                =message
+      if typeof info !== 'undefined'
+        each message in info
+          .alert.alert-info
+            button.close(type='button', data-dismiss='alert') ×
+            center
+              h5
+                =message
+  .row
+    .span4.offset4
+      .well
+        form(action="/signin", method="post")  
+          h2 Sign In
+          hr
+          .form-horizontal.pull-right
+            .control-group
+              label.control-label(for="email") Email
+              .controls
+                input(type='text', placeholder='bob@example.com', name='email')
+            .control-group
+              label.control-label(for="passwd") Password
+              .controls
+                input(type='password', placeholder='password', name='passwd')
+          .row          
+            .btn-group.pull-right
+              a.btn.btn-inverse(href="/register") Register
+              a.btn.btn-inverse(href="/forgot") Forgot Password?
+              button.btn.btn-primary(type='submit') Sign in
+            
