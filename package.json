@@ -2,7 +2,7 @@
   "name": "iquidus-base",
   "description": "Iquidus Base - user management system",
   "author": "Iquidus Technology <info@iquidus.co.nz>",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "scripts": {
     "start": "node base.js"
@@ -18,7 +18,8 @@
     "passport-local": "0.1.6",
     "nconf": "0.6.9",
     "connect-flash": "0.1.1",
-    "jsonminify": "0.2.2"
+    "jsonminify": "0.2.2",
+    "emailjs": "0.3.6"
   },
   "contributors": [ 
     {
